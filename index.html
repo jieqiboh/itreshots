@@ -185,6 +185,41 @@
     }
     .statement blockquote em { color: var(--accent); }
 
+
+    .gallery-head { margin-bottom: 56px; }
+    .gallery-head h2 {
+      font-family: var(--serif); font-weight: 300;
+      font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1; margin: 14px 0 0;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(24px, 5vw, 72px);
+      align-items: start;
+    }
+    .shot { margin: 0; }
+    .shot:nth-child(2) { margin-top: clamp(0px, 10vw, 140px); }
+    .shot .frame {
+      background: var(--bg-2);
+      padding: 12px;
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .shot img {
+      width: 100%; height: auto;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center top;
+      filter: contrast(1.04) saturate(0.9);
+      transition: transform 1.2s cubic-bezier(.2,.7,.2,1), filter .6s;
+    }
+    .shot:hover img { transform: scale(1.03); filter: contrast(1.06) saturate(1); }
+    .shot figcaption {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-top: 16px;
+    }
+    .shot figcaption .title { font-family: var(--serif); font-size: 1.35rem; font-style: italic; }
+
     .services-head {
       display: flex; justify-content: space-between; align-items: end;
       flex-wrap: wrap; gap: 20px;
@@ -267,6 +302,8 @@
       .plate .corner.bl { bottom: 26px; left: -14px; }
       .scroll-cue { display: none; }
       .services { grid-template-columns: 1fr; }
+      .gallery { grid-template-columns: 1fr; gap: 48px; }
+      .shot:nth-child(2) { margin-top: 0; }
       .service, .service + .service {
         padding: 36px 0;
         border-right: 0;
@@ -281,14 +318,14 @@
   <header>
     <a class="logo" href="#top">Itre <em>Shots</em></a>
     <nav>
-      <a href="#work" class="hide-sm">Work</a>
+      <a href="#work">Work</a>
       <a href="#services">Services</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <main id="top">
-    <div class="hero" id="work">
+    <div class="hero">
       <div>
         <div class="eyebrow rise d1">Portrait &amp; Physique Photography</div>
         <h1 class="rise d2">Light,<br>form &amp;<br><em>presence.</em></h1>
@@ -315,6 +352,25 @@
     <section class="statement">
       <div class="eyebrow">The Approach</div>
       <blockquote>Every frame is built on <em>light</em>, patience and the honest shape of a person.</blockquote>
+    </section>
+
+    <section id="work" style="padding-top:0">
+      <div class="wrap">
+        <div class="gallery-head">
+          <div class="eyebrow">Selected Work</div>
+          <h2>Portfolio</h2>
+        </div>
+        <div class="gallery">
+          <figure class="shot">
+            <div class="frame"><img src="photo.jpg" alt="Physique portrait against a dark background" width="180" height="191" loading="lazy"></div>
+            <figcaption><span class="title">Low Key</span><span class="eyebrow">No. 01</span></figcaption>
+          </figure>
+          <figure class="shot">
+            <div class="frame"><img src="photo-02.jpg" alt="Portrait in a white training vest, indoors" width="602" height="855" loading="lazy"></div>
+            <figcaption><span class="title">Training Day</span><span class="eyebrow">No. 02</span></figcaption>
+          </figure>
+        </div>
+      </div>
     </section>
 
     <section id="services" style="padding-top:0">
